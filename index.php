@@ -34,5 +34,3 @@ include('inc/header.php'); ?>
 </section>
 
 <?php include('inc/footer.php'); ?>
-
-
