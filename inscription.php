@@ -1,5 +1,6 @@
 <?php
-include('assets/inc/functions.php');
+include('inc/functions.php');
+include('inc/pdo.php');
 
 $errors  = array();
 $success = false;
@@ -17,23 +18,11 @@ if (!empty($_POST['submitted'])) {
     $errors = textValid($textArea,$errors,'textArea',10,4000);
     $errors = emailValidation($mail,$errors,'mail');
 
-    if(empty($select)){
-        $errors['select'] = 'Veuillez selectionner un motif.';
-    }
-
     if(count($errors) == 0) {
         $success = true;
     }
 
 }
-
-$select = array(
-    'probleme'  => "Vous n'arrivez pas à vous connecter",
-    'probleme1' => "Vous n'arrivez pas à mettre à jour vos vaccins",
-    'probleme2' => "Vos vaccins ne s'affichent pas",
-    'probleme3' => "Question pratique",
-    'probleme4' => "Autres problèmes",
-);
 
 ?>
 <?php if($success) {?>
@@ -41,7 +30,7 @@ $select = array(
     <div class="retour-index"><a href="index.html">Accueil</a></div>
 <?php } else {?>
 
-    <?php include('header.php');
+    <?php include('inc/header.php');
     ?>
     <div class="wrap">
 
@@ -66,17 +55,6 @@ $select = array(
                 <span class="error"><?php if(!empty($errors['mail'])) {echo $errors['mail'];} ?>
             </div>
 
-            <div class="formulaire select">
-                <label class="label-contact" for="select">Motif :</label>
-                <select id="select" name="select">
-                    <option value="">-- Sélectionnez --</option>
-                    <?php foreach ($select as $key => $value) { ?>
-                    <option value="<?php echo $key; ?>"<?php if (!empty($_POST['select'])) {if($_POST['select'] == $key ) {echo ' selected="selected" ';}} ?>>
-                        <?php echo $value; ?></option><?php   }  ?>
-                </select>
-                <span class="error"><?php if (!empty($errors['select'])) {echo $errors['select'];} ?></span>
-            </div>
-
             <div class="formulaire textArea">
                 <label class="label-contact" for="textArea">Message :</label>
                 <textarea rows="8" id="textArea" class="textArea" name="textArea"><?php if (!empty($_POST['textArea'])) {echo $_POST['textArea'];} ?></textarea>
@@ -91,6 +69,7 @@ $select = array(
 
 
     </div>
+
 <?php }
-include('footer.php');
+include('inc/footer.php');
 ?>
