@@ -56,6 +56,6 @@ include('inc/header.php'); ?>
         <input type="submit" name="submitted" value="connexion">
     </form>
 
-    <a href="forget-password.php">Mot de passe oublié</a>
+    <a href="forget-mdp.php">Mot de passe oublié</a>
 
 <?php include('inc/footer.php');
