@@ -51,16 +51,4 @@ function generateToken()
     }
       return $token;
 }
-
-function motdepasse($mdp)
-{
-  $mdp = '';
-
-  $valeurs = "HhUuBbEeRrtT";
-
-  for ($i=0; $i < 10 ; $i++) {
-    $mdp .= $valeurs[rand(0,mb_strlen($valeurs))];
-  }
-  echo $mdp;
-}
 // FIN Fonctions;
