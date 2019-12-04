@@ -2,9 +2,11 @@
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <titleMovies</title>
+    <titleMovies
+    </title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +26,7 @@
             </nav>
             <div class="log">
                 <a class="connexion" href="">Connexion</a>
-                <a class="inscription" href="assets/inscription.php">Inscription</a>
+                <a class="inscription" href="inscription.php">Inscription</a>
                 <a href=""><img src="assets/img/loupe.svg" alt=""></a>
             </div>
         </header>
@@ -33,10 +35,6 @@
 </div>
 
 </body>
-
-
-
-
 
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-include('assets/front/inc/functions.php');
+include('assets/inc/functions.php');
 
 $errors  = array();
 $success = false;
