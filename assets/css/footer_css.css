@@ -1,0 +1,70 @@
+@import "reset.css";
+
+footer .wrap {
+    max-width: 1120px;
+    width:100%;
+    margin: 0 auto;
+}
+
+.page-footer {
+    color: #fff;
+    background-color: #0d0d0d;
+    width:100%;
+    font-family: Roboto;
+    padding-top: 70px;
+    padding-bottom: 40px;
+    padding-left: 80px;
+}
+
+.colonnes {
+
+}
+.colonne {
+    float: left;
+    width: 25%;
+
+}
+
+.colonne h2 {
+    text-transform: uppercase;
+    font-size: 1.1em;
+    color: chocolate;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.colonne ul li {
+    font-size: 0.8em;
+    line-height: 30px;
+}
+
+.colonne .rezz {
+    float: left;
+}
+
+.colonne img {
+    height: 20px;
+    width: 20px;
+    margin-right: 20px;
+    float: left;
+    margin-top: 6px;
+
+}
+
+.colonne span {
+    float: left;
+}
+
+.page-footer p {
+    font-size: 0.8em;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 700px) {
+    .colonne {
+        display:block;
+        clear:both;
+        float: left;
+        width: 25%;
+    }
+}
