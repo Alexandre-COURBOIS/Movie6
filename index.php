@@ -11,11 +11,10 @@ $movies = $query->fetchAll();
 
 include('inc/header.php'); ?>
 
-<?php foreach ($movies as $movie) { ?>
-    <div class="movies">
-        <img src="posters/<?php echo $movie['id']; ?>.jpg" alt="">
-    </div>
+<?php foreach ($movies as $movie) {
 
-<?php } ?>
+    echo '<a href="details.php?id='.$movie['id'].'"><img src="posters/'.$movie['id'].'.jpg" alt=""</a>';
+    
+} ?>
 
 <?php include('inc/footer.php'); ?>
