@@ -1,8 +1,9 @@
-<footer>
 
-    <div class="clear">
+
 
     <footer class="page-footer">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <div class="clear">
         <div class="wrap">
 
             <div class="colonnes">
@@ -43,19 +44,23 @@
 
                 <div class="colonne">
                     <h2>Restons connectés</h2>
+                    <div class="rezz">
                     <nav>
                         <ul>
-                            <li>Facebook</li>
-                            <li>Twitter</li>
-                            <li>Instagram</li>
+                            <li><img class="reseaux" src="assets/img/facebook.png" alt="fb"><span>Facebook</span></li>
+                            <li><img class="reseaux" src="assets/img/twitter.png" alt="tw"><span>Twitter</span></li>
+                            <li><img class="reseaux" src="assets/img/instagram.png" alt="ig"><span>Instagram</span></li>
                         </ul>
                     </nav>
+                    </div>
                 </div>
 
+                <div class="clear"></div>
+
                 <p>2019 © Movies / Webdesign by Les Chachats media</p>
-
-
-
+            </div>
+        </div>
+    </div>
     </footer>
 
 </body>
