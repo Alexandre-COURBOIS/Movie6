@@ -24,7 +24,7 @@
             </nav>
             <div class="log">
                 <a class="connexion" href="">Connexion</a>
-                <a class="inscription" href="inscription.php">Inscription</a>
+                <a class="inscription" href="assets/inscription.php">Inscription</a>
                 <a href=""><img src="assets/img/loupe.svg" alt=""></a>
             </div>
         </header>
