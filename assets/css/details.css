@@ -21,3 +21,8 @@
 .films p {
     line-height: 25px;
 }
+
+#postdetail {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

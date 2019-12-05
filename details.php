@@ -22,25 +22,22 @@ include('inc/header.php');?>
 
     <div class="films">
         <h1><?php echo $movies['title']; ?></h1>
-<<<<<<< HEAD
+
         <p><span>Year : </span><?php echo $movies['year']; ?></p>
         <p><span>Genre : </span><?php echo $movies['genres']; ?></p>
         <p><span>Resumé : </span><?php echo $movies['plot']; ?></p>
-=======
-        <img src="posters/<?php echo $movies['id']; ?>.jpg" alt="">
-        <p>Year : <?php echo $movies['year']; ?></p>
-        <p>Genre : <?php echo $movies['genres']; ?></p>
-        <p>Resumé : <?php echo $movies['plot']; ?></p>
-        <p>Realisateur : <?php echo $movies['directors']; ?></p>
-        <p>Acteurs : <?php echo $movies['cast']?> </p>
-        <p>Ecrivain : <?php echo $movies['writers']?> </p>
-        <p>Durée : <?php echo $movies['runtime']?> minutes. </p>
-        <p>Limitation d'âge : <?php echo $movies['mpaa']?> </p>
-        <p>Limitation d'âge : <?php echo $movies['mpaa']?> </p>
-        <p>Note : <?php echo $movies['rating']?> /100</p>
-        <p>Popularité : <?php echo $movies['popularity']?> </p>
 
->>>>>>> fb65a0a3b5002773696217991a738fa559d9f023
+        <img id="postdetail" src="posters/<?php echo $movies['id']; ?>.jpg" alt="">
+
+        <p><span>Realisateur : </span><?php echo $movies['directors']; ?></p>
+        <p><span>Acteurs : </span><?php echo $movies['cast']?> </p>
+        <p><span>Ecrivain : </span><?php echo $movies['writers']?> </p>
+        <p><span>Durée : </span><?php echo $movies['runtime']?> minutes. </p>
+        <p><span>Limitation d'âge : </span><?php echo $movies['mpaa']?> </p>
+        <p><span>Note : </span><?php echo $movies['rating']?> /100</p>
+        <p><span>Popularité : </span><?php echo $movies['popularity']?> </p>
+
+
     </div>
 
 <?php include('inc/footer.php'); ?>
