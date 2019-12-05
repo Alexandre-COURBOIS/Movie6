@@ -9,24 +9,59 @@ $query = $pdo->prepare($sql);
 $query->execute();
 $movies = $query->fetchAll();
 
+$sql = "SELECT * FROM movies_full WHERE 1 = 1";
+if(!empty($_POST['genres'])){
+
+    $sql .= ' AND ( genres LIKE "%' . $_POST['genres'][0] . '%" ';
+    for($i = 1;$i<count($_POST['genres']);$i++) {
+        $sql .= ' OR genres LIKE "%' . $_POST['genres'][$i] . '%"';
+
+    }
+    $sql .= ')';
+}
+
 include('inc/header.php'); ?>
 
 <div class="wrap">
 
 <form method="POST" action="checkbox.php">
 
-    <input type="checkbox" name="Drama" value="1"> Drama<br>
-    <input type="checkbox" name="Fantasy" value="2"> Fantasy<br>
-    <input type="checkbox" name="Romance" value="3"> Romance<br>
-    <input type="checkbox" name="Action" value="4"> Action<br>
-    <input type="checkbox" name="Thriller" value="5"> Thriller<br>
-    <input type="checkbox" name="Comedy" value="6"> Comedy<br>
-    <input type="checkbox" name="Adventure" value="7"> Adventure<br>
-    <input type="checkbox" name="Animation" value="8"> Animation<br>
-    <input type="checkbox" name="Family" value="9"> Family<br>
-    <input type="checkbox" name="Sci-fi" value="10"> Sci-Fi<br>
-    <input type="checkbox" name="Crime" value="11"> Crime<br>
-    <input type="checkbox" name="Horror" value="12"> Horror<br>
+    <input type="checkbox" name="genres[]" value="1"> Drama<br>
+    <label for="Drama">Drama</label>
+
+    <input type="checkbox" name="genres[]" value="2"> Fantasy<br>
+    <label for="Fantasy">Fantasy</label>
+
+    <input type="checkbox" name="genres[]" value="3"> Romance<br>
+    <label for="Romance">Romance</label>
+
+    <input type="checkbox" name="genres[]"  value="4"> Action<br>
+    <label for="Action">Action</label>
+
+    <input type="checkbox" name="genres[]" value="5"> Thriller<br>
+    <label for="Thriller">Thriller</label>
+
+    <input type="checkbox" name="genres[]"  value="6"> Comedy<br>
+    <label for="Comedy">Comedy</label>
+
+    <input type="checkbox" name="genres[]" value="7"> Adventure<br>
+    <label for="Adventure">Adventure</label>
+
+    <input type="checkbox" name="genres[]" value="8"> Animation<br>
+    <label for="Animation">Animation</label>
+
+    <input type="checkbox" name="genres[]" value="9"> Family<br>
+    <label for="Family">Family</label>
+
+    <input type="checkbox" name="genres[]" value="10"> Sci-Fi<br>
+    <label for="Sci-fi">Sci-fi</label>
+
+    <input type="checkbox" name="genres[]" value="11"> Crime<br>
+    <label for="<Crime>">Crime</label>
+
+    <input type="checkbox" name="genres[]" value="12"> Horror<br>
+    <label for="Horror">Horror</label>
+
     <input type="submit" value="Submit">
 
 <?php foreach ($movies as $movie) {
@@ -36,8 +71,6 @@ include('inc/header.php'); ?>
     echo '<li><a href="details.php?id='.$movie['id'].'"><img src="posters/'.$movie['id'].'.jpg" alt=""></a></li>';
 
     echo '<ul>';
-
-    echo '<a href="">A visionner</a>';
 
 } ?>
 
