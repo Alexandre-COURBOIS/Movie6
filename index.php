@@ -12,10 +12,8 @@ $movies = $query->fetchAll();
 include('inc/header.php'); ?>
 
 
-
 <div class="wrap">
 <?php foreach ($movies as $movie) {
-
 
     echo '<ul class="film">';
 
@@ -24,7 +22,16 @@ include('inc/header.php'); ?>
     echo '<ul>';
 
 } ?>
+
+<div class="clear"></div>
+
+
+<p class="filmplus"><a href="index.php">+ de films !</a></p>
+
+
 </div>
+
+
 <div class="clear"></div>
 
 
