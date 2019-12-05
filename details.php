@@ -25,6 +25,15 @@ include('inc/header.php');?>
         <p>Year : <?php echo $movies['year']; ?></p>
         <p>Genre : <?php echo $movies['genres']; ?></p>
         <p>Resumé : <?php echo $movies['plot']; ?></p>
+        <p>Realisateur : <?php echo $movies['directors']; ?></p>
+        <p>Acteurs : <?php echo $movies['cast']?> </p>
+        <p>Ecrivain : <?php echo $movies['writers']?> </p>
+        <p>Durée : <?php echo $movies['runtime']?> minutes. </p>
+        <p>Limitation d'âge : <?php echo $movies['mpaa']?> </p>
+        <p>Limitation d'âge : <?php echo $movies['mpaa']?> </p>
+        <p>Note : <?php echo $movies['rating']?> /100</p>
+        <p>Popularité : <?php echo $movies['popularity']?> </p>
+
     </div>
 
 <?php include('inc/footer.php'); ?>
