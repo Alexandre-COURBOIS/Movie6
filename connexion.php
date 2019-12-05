@@ -43,9 +43,10 @@ if(!empty($_POST['submitted'])) {
 
 include('inc/header.php'); ?>
 
-    <h2>Connexion</h2>
+
 
     <form action="connexion.php" method="post" class="form-wrap">
+        <h1>Connexion</h1>
         <label for="login">Pseudo or email *</label>
         <input type="text" name="login" id="login" value="<?php if(!empty($_POST['login'])) { echo $_POST['login']; } ?>">
         <p class="error"><?php if(!empty($errors['login'])) { echo $errors['login']; } ?></p>
@@ -54,8 +55,12 @@ include('inc/header.php'); ?>
         <input type="password" name="password" id="password" value="">
 
         <input type="submit" name="submitted" value="connexion">
+
     </form>
 
-    <a href="forget-mdp.php">Mot de passe oublié</a>
+    <div class="mp">
+        <a href="forget-mdp.php">Mot de passe oublié</a>
+    </div>
+
 
 <?php include('inc/footer.php');
