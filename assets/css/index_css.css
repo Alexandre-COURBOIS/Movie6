@@ -2,6 +2,14 @@
     float:left;
     display: inline-block;
     width: 25%;
+<<<<<<< HEAD
+    margin-bottom: 5px;
+
+
+
+}
+
+=======
     margin-top: 15px;
 }
 
@@ -9,3 +17,4 @@
     margin-bottom: 15px;
     text-align:right;
 }
+>>>>>>> fb65a0a3b5002773696217991a738fa559d9f023

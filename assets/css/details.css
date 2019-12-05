@@ -1,0 +1,28 @@
+.films {
+    margin-left: 80px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-family: Roboto;
+}
+
+.films h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: chocolate;
+    margin-bottom: 30px;
+}
+
+.films span {
+    font-weight: bold;
+    font-size: 1.1em;
+
+}
+
+.films p {
+    line-height: 25px;
+}
+
+#postdetail {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
