@@ -16,7 +16,6 @@ include('inc/header.php'); ?>
 <div class="wrap">
 <?php foreach ($movies as $movie) {
 
-
     echo '<ul class="film">';
 
     echo '<li><a href="details.php?id='.$movie['id'].'"><img src="posters/'.$movie['id'].'.jpg" alt=""></a></li>';
