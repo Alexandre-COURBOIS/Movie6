@@ -22,9 +22,9 @@ include('inc/header.php');?>
 
     <div class="films">
         <h1><?php echo $movies['title']; ?></h1>
-        <p>Year : <?php echo $movies['year']; ?></p>
-        <p>Genre : <?php echo $movies['genres']; ?></p>
-        <p>Resumé : <?php echo $movies['plot']; ?></p>
+        <p><span>Year : </span><?php echo $movies['year']; ?></p>
+        <p><span>Genre : </span><?php echo $movies['genres']; ?></p>
+        <p><span>Resumé : </span><?php echo $movies['plot']; ?></p>
     </div>
 
 <?php include('inc/footer.php'); ?>
