@@ -1,0 +1,35 @@
+.form-wrap {
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+    padding-top: 50px;
+    font-family: Roboto;
+
+}
+
+.form-wrap input[type=text], .form-wrap input[type=password], .form-wrap input[type=email] {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #f1f1f1;
+    margin-bottom: 10px;
+}
+
+.form-wrap label {
+    color: #309488;
+}
+
+.form-wrap h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: chocolate;
+    margin-bottom: 30px;
+}
+
+.form-wrap input[type=submit] {
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+
