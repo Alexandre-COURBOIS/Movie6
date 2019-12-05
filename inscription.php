@@ -76,9 +76,10 @@ if(!empty($_POST['submitted'])) {
 
 include('inc/header.php'); ?>
 
-    <h1>Inscription</h1>
 
-    <form action="inscription.php" method="post">
+
+    <form class="form-wrap" action="inscription.php" method="post">
+        <h1>Inscription</h1>
         <label for="pseudo">Pseudo *</label>
         <input type="text" name="pseudo" id="pseudo" value="<?php if(!empty($_POST['pseudo'])) { echo $_POST['pseudo']; } ?>">
         <p class="error"><?php if(!empty($errors['pseudo'])) { echo $errors['pseudo']; } ?></p>

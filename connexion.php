@@ -45,7 +45,7 @@ include('inc/header.php'); ?>
 
     <h2>Connexion</h2>
 
-    <form action="connexion.php" method="post">
+    <form action="connexion.php" method="post" class="form-wrap">
         <label for="login">Pseudo or email *</label>
         <input type="text" name="login" id="login" value="<?php if(!empty($_POST['login'])) { echo $_POST['login']; } ?>">
         <p class="error"><?php if(!empty($errors['login'])) { echo $errors['login']; } ?></p>
