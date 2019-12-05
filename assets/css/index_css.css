@@ -1,9 +1,6 @@
-/*
-.film {
-    width: 100%;
-    display:inline-block;
-}
-
-.film a img {
+.film ul li {
+    float:left;
+    display: inline-block;
     width: 25%;
-}*/
+    margin-bottom: 5px;
+}

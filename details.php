@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('inc/pdo.php');
 
 if(!empty($_GET['id']) && is_numeric($_GET['id'])){

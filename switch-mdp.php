@@ -6,15 +6,19 @@ $title = 'modifier votre mot de passe';
 $errors = array();
 
 if(!empty($_GET['token']) && !empty($_GET['email'])) {
+
     $token = trim(strip_tags($_GET['token']));
     $email = trim(strip_tags($_GET['email']));
+
     $email = urldecode($email);
+
     $sql = "SELECT * FROM users WHERE email = :email AND token = :token";
     $query = $pdo->prepare($sql);
     $query->bindValue(':email', $email, PDO::PARAM_STR);
     $query->bindValue(':token', $token, PDO::PARAM_STR);
     $query->execute();
     $user = $query->fetch();
+
     if(!empty($user)) {
 
         if(!empty($_POST['submitted'])) {
@@ -34,6 +38,7 @@ if(!empty($_GET['token']) && !empty($_GET['email'])) {
 
                 $hashPassword = password_hash($password1,PASSWORD_BCRYPT);
                 $token = generateRandomString(120);
+                
                 $sql = "UPDATE users SET password = :password, token = :token WHERE email = :email";
                 $query = $pdo->prepare($sql);
                 $query->bindValue(':email',   $email,PDO::PARAM_STR);
