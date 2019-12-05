@@ -19,7 +19,7 @@ include('inc/header.php'); ?>
 
     echo '<ul class="film">';
 
-    echo '<li><a href="details.php?id='.$movie['id'].'"><img src="posters/'.$movie['id'].'.jpg" alt=""</a></li>';
+    echo '<li><a href="details.php?id='.$movie['id'].'"><img src="posters/'.$movie['id'].'.jpg" alt=""></a></li>';
 
     echo '<ul>';
 
