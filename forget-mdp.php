@@ -11,11 +11,13 @@ $success = false;
 if(!empty($_POST['submitted'])) {
 
     $email = trim(strip_tags($_POST['email']));
+
     $sql = "SELECT email, token FROM users WHERE email = :email";
     $query = $pdo->prepare($sql);
     $query->bindValue(':email',$email,PDO::PARAM_STR);
     $query->execute();
     $user = $query->fetch();
+
     if(!empty($user)) {
         $token = $user['token'];
         $email = urlencode($email);
