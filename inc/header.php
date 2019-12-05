@@ -40,7 +40,7 @@
                 </ul>
             </nav>
             <div class="log">
-                <a class ="voir" href="">A voir</a>
+                <a class ="voir" href="favoris.php">A voir</a>
                 <a class="connexion" href="deconnexion.php">Deconnexion</a>
                 <a href=""><img src="assets/img/loupe.svg" alt=""></a>
             </div>
