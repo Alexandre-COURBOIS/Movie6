@@ -37,6 +37,8 @@ include('inc/header.php');?>
         <p><span>Note : </span><?php echo $movies['rating']?> /100</p>
         <p><span>Popularité : </span><?php echo $movies['popularity']?> </p>
 
+        <a href="">Ajouter à ma liste de favoris</a>
+
 
     </div>
 
