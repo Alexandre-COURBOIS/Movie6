@@ -13,9 +13,11 @@ include('inc/header.php'); ?>
 
 <?php foreach ($movies as $movie) {
 
-    echo '<div class="film">';
-    echo '<a href="details.php?id='.$movie['id'].'"><img src="posters/'.$movie['id'].'.jpg" alt=""</a>';
-    echo '</div>';
+    echo '<ul class="film">';
+
+    echo '<li><a href="details.php?id='.$movie['id'].'"><img src="posters/'.$movie['id'].'.jpg" alt=""</a></li>';
+
+    echo '<ul>';
 
 } ?>
 
