@@ -14,6 +14,7 @@ if (!empty($_POST['submitted'])) {
 
 
     $sql = "SELECT * FROM movies_full WHERE 1 = 1";
+
     if (!empty($_POST['genres'])) {
 
         $sql .= ' AND ( genres LIKE "%' . $_POST['genres'][0] . '%" ';
@@ -25,7 +26,6 @@ if (!empty($_POST['submitted'])) {
         $sql .= ')';
     }
 
-    echo $sql;
     $query = $pdo->prepare($sql);
     $query->execute();
     $movies = $query->fetchAll();
@@ -64,6 +64,7 @@ include('inc/header.php'); ?>
 
     <input type="submit" name="submitted" value="Confirmer">
 </form>
+
 <?php
 
 foreach ($movies as $movie) {

@@ -70,8 +70,12 @@ if(!empty($_POST['submitted'])) {
         $query->execute();
         $success = true;
 
+        header('Location: connexion.php');
+
     }
 }
+
+
 
 
 include('inc/header.php'); ?>
