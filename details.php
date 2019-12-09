@@ -9,6 +9,7 @@ if(!empty($_GET['slug'])) {
 
     $sql="SELECT * FROM movies_full WHERE slug LIKE '".$slug."%'";
     $query  = $pdo->prepare($sql);
+    /*Bindvalue*/
     $query->execute();
     $movies = $query->fetch();
 
