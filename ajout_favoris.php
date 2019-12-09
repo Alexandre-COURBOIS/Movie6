@@ -9,6 +9,11 @@ if(!empty($_GET['id']) && is_numeric($_GET['id']) && is_logged()) {
     $user_id = $_SESSION['login']['id'];
     $movie_id = $_GET['id'];
 
+    // SELECT WHERE ID = $movie_id
+
+      // if exist 
+
+
     $sql = "INSERT INTO movie_user VALUES (null,:user_id,:movie_id,null,NOW(),null)";
     $query = $pdo->prepare($sql);
     $query->bindValue(':user_id',  $user_id,PDO::PARAM_STR);
