@@ -40,10 +40,11 @@ $page = 1;
 if(!empty($_GET['page'])) {
     $page = $_GET['page'];
 }
-$totalItems = 1000; // Count movies
-$itemsPerPage = 20; // Item par page
-$currentPage = $page; // 1
-$urlPattern = 'index.php?page=(:num)'; //
+
+$totalItems = 1000;
+$itemsPerPage = 20;
+$currentPage = $page;
+$urlPattern = 'index.php?page=(:num)';
 
 $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 
@@ -107,6 +108,8 @@ if(file_exists($image)) {
 
     }
 }
+
+echo $paginator;
     ?>
 
 <div class="clear"></div>
