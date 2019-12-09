@@ -7,9 +7,11 @@ require('inc/functions.php');
 if (is_logged()) {
     $iduser = $_SESSION['login']['id'];
 
-    $sql = "SELECT mf.*,mu.id AS id,mf.id AS movieid, mf.title AS title FROM movie_user AS mu
+    $sql = "SELECT mf.*,mu.id AS id,mf.id AS movieid, mf.title AS title,u.email AS emailuser FROM movie_user AS mu
             LEFT JOIN movies_full AS mf
             ON mu.movie_id = mf.id
+            LEFT JOIN users AS u
+            ON mu.user_id = u.id
             WHERE mu.user_id = $iduser
             AND note IS NULL";
     $query  = $pdo->prepare($sql);
