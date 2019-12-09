@@ -6,24 +6,18 @@ include('inc/functions.php');
 
 if(!empty($_GET['id']) && is_numeric($_GET['id']) && is_logged()) {
 
-    $idusers = $_SESSION['login']['id'];
+    $user_id = $_SESSION['login']['id'];
+    $movie_id = $_GET['id'];
 
-    $sql = "SELECT id
-        FROM movie_user AS mu
-        JOIN users ON users.id = user_id.id
-        JOIN movies_full AS mf ON mf.id = movie_id.id
-        WHERE users.id = $idusers";
-
+    $sql = "INSERT INTO movie_user VALUES (null,:user_id,:movie_id,null,NOW(),null)";
     $query = $pdo->prepare($sql);
+    $query->bindValue(':user_id',  $user_id,PDO::PARAM_STR);
+    $query->bindValue(':movie_id',   $movie_id,PDO::PARAM_STR);
     $query->execute();
-    $userid = $query->fetchAll();
+    $success = true;
 
-    $sql ="SELECT *
-    FROM movie_user
-    WHERE 1 = 1";
-    $query = $pdo->prepare($sql);
-    $query->execute();
+    header('Location: favoris.php');
 
-    $favoris = $query->fetchAll();
-
+} else {
+    die('404');
 }
