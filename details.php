@@ -3,11 +3,11 @@ session_start();
 require('inc/pdo.php');
 require('inc/functions.php');
 
-if(!empty($_GET['id']) && is_numeric($_GET['id'])){
+if(!empty($_GET['slug'])) {
 
-    $id = $_GET['id'];
+    $slug = $_GET['slug'];
 
-    $sql="SELECT * FROM movies_full WHERE id = $id";
+    $sql="SELECT * FROM movies_full WHERE slug LIKE '".$slug."%'";
     $query  = $pdo->prepare($sql);
     $query->execute();
     $movies = $query->fetch();
