@@ -25,7 +25,7 @@ include('inc/header.php'); ?>
 
 <div class="wrap">
 
-<form method="POST" action="checkbox.php">
+<form method="GET" action="checkbox.php">
 
     <input type="checkbox" name="genres[]" value="1"> Drama<br>
 
