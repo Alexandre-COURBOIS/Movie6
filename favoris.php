@@ -5,7 +5,10 @@ require('inc/functions.php');
 
 
 if (is_logged()) {
+
     $iduser = $_SESSION['login']['id'];
+
+    // request pour aller chercher mes film à voir +++
 
     $sql = "SELECT mf.*,mu.id AS id,mf.id AS movieid, mf.title AS title,u.email AS emailuser FROM movie_user AS mu
             LEFT JOIN movies_full AS mf
@@ -17,23 +20,27 @@ if (is_logged()) {
     $query  = $pdo->prepare($sql);
     $query->execute();
     $movies = $query->fetchAll();
-    debug($movies);
-
-    // request pour aller chercher mes film à voir +++
-
-
-
 
 } else {
-
-  // redirection
-  die('403');
+    die('403');
 }
 
 
-// header
+include('inc/header.php');
 
-// foreach
+
+foreach ($movies as $movie) {
+
+    echo '<ul class="film-a-voir">';
+
+    echo '<li><a href="details.php?slug='.$movie['slug'].'"><img src="posters/'.$movie['movieid'].'.jpg" alt=""></a></li>';
+
+    echo '<ul>';
+
+}
+
+
+include('inc/footer.php');
 // +++++++++++++++++++++++++++++++++++++++
   // html afficher les films  +++++
   // +++++++++++++++++++++++++++++++++++++++
