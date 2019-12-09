@@ -15,5 +15,3 @@ if (is_logged()) {
     $user_movie = $query->fetchAll();
 
 }
-
-include('header.php');
