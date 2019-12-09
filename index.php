@@ -9,7 +9,6 @@ $query = $pdo->prepare($sql);
 $query->execute();
 $movies = $query->fetchAll();
 
-// si form soumis
 if (!empty($_POST['submitted'])) {
 
 
