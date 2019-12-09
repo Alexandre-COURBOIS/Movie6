@@ -1,4 +1,6 @@
 <?php
+require('vendor/autoload.php');
+
 session_start();
 
 require('inc/pdo.php');
@@ -29,6 +31,21 @@ if (!empty($_POST['submitted'])) {
     $query->execute();
     $movies = $query->fetchAll();
 }
+
+use JasonGrimes\Paginator;
+
+$page = 1;
+
+if(!empty($_GET['page'])) {
+    $page = $_GET['page'];
+}
+$totalItems = 1000; // Count movies
+$itemsPerPage = 20; // Item par page
+$currentPage = $page; // 1
+$urlPattern = 'index.php?page=(:num)'; //
+
+$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+
 
 include('inc/header.php'); ?>
 
