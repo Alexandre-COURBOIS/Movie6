@@ -9,6 +9,7 @@ $query = $pdo->prepare($sql);
 $query->execute();
 $movies = $query->fetchAll();
 
+
 $sql = "SELECT * FROM movies_full WHERE 1 = 1";
 if(!empty($_POST['genres'])){
 
@@ -53,7 +54,13 @@ include('inc/header.php'); ?>
 
     <input type="submit" value="Submit">
 
-<?php foreach ($movies as $movie) {
+<?php
+
+foreach ($movies as $movie) {
+
+    $image = 'posters/'.$movie['id'].'.jpg';
+
+if(file_exists($image)) {
 
     echo '<ul class="film">';
 
@@ -61,7 +68,18 @@ include('inc/header.php'); ?>
 
     echo '<ul>';
 
-} ?>
+
+} else {
+
+        echo '<ul class="film">';
+
+        echo '<li><a href="details.php?slug='.$movie['slug'].'"><img width="220px" height="312px" src="assets/img/visuel-non-dispo.jpg" alt=""></a></li>';
+
+        echo '<ul>';
+
+    }
+}
+    ?>
 
 <div class="clear"></div>
 
