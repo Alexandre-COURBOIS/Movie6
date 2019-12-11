@@ -150,6 +150,7 @@ ehthumbs.db
 ehthumbs_vista.db
 posters/
 inc/pdo.php
+assets/back/inc/pdo.php
 vendor/
 # Dump file
 *.stackdump
