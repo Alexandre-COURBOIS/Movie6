@@ -18,7 +18,7 @@ $users = $query->fetchALL();
                           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Prenom</th>
+                                    <th>Pseudo</th>
                                     <th>Email</th>
                                     <th>Roles</th>
                                     <th>Edition</th>
@@ -28,7 +28,7 @@ $users = $query->fetchALL();
                             <tbody>
                               <?php foreach ($users as $key => $user): ?>
                                 <tr>
-                                  <td><?php echo $user['prenom']; ?></td>
+                                  <td><?php echo $user['pseudo']; ?></td>
                                   <td><?php echo $user['email']; ?></td>
                                   <td><?php echo $user['roles'] ?></td>
                                   <td><a class="btn btn-success" href="user_edition.php?id=<?php echo $user['id'] ?>">EDITION</a></td>

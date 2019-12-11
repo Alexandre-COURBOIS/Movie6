@@ -1,9 +1,6 @@
 <?php
 
 include "assets/back/inc/pdo.php";
-include "assets/front/inc/Form.php";
-include "assets/front/inc/FormVerif.php";
-include "assets/front/inc/functions.php";
 
 $id = $_GET['id'];
 
@@ -19,13 +16,11 @@ $formVerif = new FormVerif;
 $error = array();
 
 if(isset($_POST['submited'])){
-  $nom       = trim(strip_tags($_POST['nom']));
-  $prenom    = trim(strip_tags($_POST['prenom']));
+  $pseudo       = trim(strip_tags($_POST['pseudo']));
   $email     = trim(strip_tags($_POST['email']));
   $password  = trim(strip_tags($_POST['password']));
 
-  $error['nom']       = $formVerif->errorText($nom, 'nom', 5, 20);
-  $error['prenom']    = $formVerif->errorText($prenom, 'prenom', 5, 20);
+  $error['pseudo']    = $formVerif->errorText($pseudo, 'pseudo');
   $error['email']     = $formVerif->errorEmail($email, 'email', 10, 100);
   $error['password']  = $formVerif->errorText($password, 'Mot de passe', 5, 255);
 
@@ -33,12 +28,11 @@ if(isset($_POST['submited'])){
 
   $password = password_hash($password, PASSWORD_DEFAULT);
 
-  $sql =" UPDATE `users` SET email = :email, password= :password, nom = :nom, prenom = :prenom, created_at = NOW() WHERE id = :id";
+  $sql =" UPDATE `users` SET email = :email, password= :password, pseudo = :pseudo, created_at = NOW() WHERE id = :id";
     $query = $pdo->prepare($sql);
     $query->bindValue(':email',$email, PDO::PARAM_STR);
     $query->bindValue(':password',$password, PDO::PARAM_STR);
-    $query->bindValue(':nom',$nom, PDO::PARAM_STR);
-    $query->bindValue(':prenom',$prenom, PDO::PARAM_STR);
+    $query->bindValue(':pseudo',$pseudo, PDO::PARAM_STR);
     $query->bindValue(':id',$id, PDO::PARAM_INT);
     $query->execute();
   }
