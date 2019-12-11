@@ -17,21 +17,38 @@ if (is_logged()) {
             ON mu.user_id = u.id
             WHERE mu.user_id = $iduser
             AND note IS NULL";
-    $query  = $pdo->prepare($sql);
+    $query = $pdo->prepare($sql);
     $query->execute();
     $movies = $query->fetchAll();
 
-} else {
-    die('403');
-}
+    if (!empty($_POST['submitted'])) {
 
-$select = array(
-    'Note'  => "1",
-    'Note1' => "2",
-    'Note2' => "3",
-    'Note3' => "4",
-    'Note4' => "5",
-);
+        $idmovie = $_POST['hidden_movie'];
+        $note = $_POST['note'];
+
+
+        $sql = "SELECT * FROM movie_user WHERE user_id = :iduser AND movie_id = :idmovie";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':iduser', $iduser, PDO::PARAM_INT);
+        $query->bindValue(':idmovie', $idmovie, PDO::PARAM_INT);
+        $query->execute();
+        $verifMovie = $query->fetchAll();
+
+        if (!empty($verifMovie)) {
+            $sql = "UPDATE movie_user SET note = :note, modified_at = NOW() WHERE user_id = :iduser AND movie_id = :idmovie ";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':iduser', $iduser, PDO::PARAM_INT);
+            $query->bindValue(':note', $note, PDO::PARAM_STR);
+            $query->bindValue(':idmovie', $idmovie, PDO::PARAM_INT);
+            $query->execute();
+
+        }
+
+        }
+
+    } else {
+        die('403');
+    }
 
 
 include('inc/header.php');
@@ -45,18 +62,27 @@ foreach ($movies as $movie) {
 
     echo '<ul>';
 
-    echo '<div><a href="delate-fav.php?id=' . $iduser . '&film=' . $movie['movieid'] . '">Retirer de mes favoris</a></div>';?>
+    echo '<div><a href="delate-fav.php?id=' . $iduser . '&film=' . $movie['movieid'] . '">Retirer de mes favoris</a></div>';
 
-    <div class="formulaire select">
-        <label class="label-contact" for="select">Note /5 :</label>
-        <select id="select" name="select">
-            <option value="">-- Sélectionnez --</option>
-            <?php foreach ($select as $key => $value) { ?>
-            <option value="<?php echo $key; ?>"<?php if (!empty($_POST['select'])) {if($_POST['select'] == $key ) {echo ' selected="selected" ';}} ?>>
-                <?php echo $value; ?></option><?php   }  ?>
+    ?>
+
+    <form action="favoris.php" method="post">
+
+        <select name="note">
+            <option value="">-- Saisissez votre note --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
         </select>
+        <input type="hidden" name="hidden_movie" value="<?= $movie['movieid'] ?>">
         <input type="submit" name="submitted" value="Envoyer">
-        <span class="error"><?php if (!empty($errors['select'])) {echo $errors['select'];} ?></span>
+
+    </form>
+
+    <span class="error"><?php if (!empty($errors['select'])) {echo $errors['select'];} ?></span>
+
     </div>
 
 
