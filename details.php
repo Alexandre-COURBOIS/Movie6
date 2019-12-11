@@ -19,7 +19,7 @@ if (!empty($_GET['slug'])) {
     }
 
 } else {
-    die('404 Not Found');
+    die('403 Not Found');
 }
 
 include('inc/header.php');?>
