@@ -16,22 +16,17 @@ $formVerif = new FormVerif;
 $error = array();
 
 if(isset($_POST['submited'])){
-  $pseudo       = trim(strip_tags($_POST['pseudo']));
+  $pseudo    = trim(strip_tags($_POST['pseudo']));
   $email     = trim(strip_tags($_POST['email']));
-  $password  = trim(strip_tags($_POST['password']));
 
   $error['pseudo']    = $formVerif->errorText($pseudo, 'pseudo');
   $error['email']     = $formVerif->errorEmail($email, 'email', 10, 100);
-  $error['password']  = $formVerif->errorText($password, 'Mot de passe', 5, 255);
 
   if (!empty($error)) {
 
-  $password = password_hash($password, PASSWORD_DEFAULT);
-
-  $sql =" UPDATE `users` SET email = :email, password= :password, pseudo = :pseudo, created_at = NOW() WHERE id = :id";
+  $sql =" UPDATE `users` SET email = :email, pseudo = :pseudo, created_at = NOW() WHERE id = :id";
     $query = $pdo->prepare($sql);
     $query->bindValue(':email',$email, PDO::PARAM_STR);
-    $query->bindValue(':password',$password, PDO::PARAM_STR);
     $query->bindValue(':pseudo',$pseudo, PDO::PARAM_STR);
     $query->bindValue(':id',$id, PDO::PARAM_INT);
     $query->execute();
@@ -53,14 +48,6 @@ include "admin_header.php"; ?>
 <label for="email2">Confirmation Email *</label>
 <input type="email" name="email2" id="email2" value="<?php if(!empty($_POST['email2'])) { echo $_POST['email2']; } ?>">
 <p class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></p>
-
-<label for="password1">Mot de passe *</label>
-<input type="password" name="password1" id="password1" value="">
-<p class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; } ?></p>
-
-<label for="password2">Confirmez le mot de passe *</label>
-<input type="password" name="password2" id="password2" value="">
-<p class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; } ?></p>
 
 <input type="submit" name="submitted" value="Modifier utilisateur">
 </form>
