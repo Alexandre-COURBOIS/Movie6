@@ -8,7 +8,7 @@ if (is_logged()) {
 
     $iduser = $_SESSION['login']['id'];
 
-    // request pour aller chercher mes film à voir +++
+    // request pour aller chercher mes films à voir +++
 
     $sql = "SELECT mf.*,mu.id AS id,mf.id AS movieid, mf.title AS title,u.email AS emailuser, mu.note AS mun FROM movie_user AS mu
             LEFT JOIN movies_full AS mf
@@ -43,7 +43,7 @@ if (is_logged()) {
             $query->execute();
 
         }
-
+        header('Location: notes.php');
         }
 
     } else {

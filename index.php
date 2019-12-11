@@ -1,10 +1,9 @@
 <?php
-require('vendor/autoload.php');
-
 session_start();
-
+require('vendor/autoload.php');
 require('inc/pdo.php');
 require('inc/functions.php');
+
 $title = 'Home page';
 $sql   = "SELECT * FROM movies_full ORDER BY rand() LIMIT 30";
 $query = $pdo->prepare($sql);
@@ -32,20 +31,23 @@ if (!empty($_POST['submitted'])) {
     $movies = $query->fetchAll();
 }
 
-use JasonGrimes\Paginator;
+/*use JasonGrimes\Paginator;
 
 $page = 1;
 
 if(!empty($_GET['page'])) {
+
     $page = $_GET['page'];
-}
 
-$totalItems = 1000;
-$itemsPerPage = 20;
-$currentPage = $page;
-$urlPattern = 'index.php?page=(:num)';
+    $totalItems = 1000;
+    $itemsPerPage = 20;
+    $currentPage = $page;
+    $urlPattern = 'index.php?page=(:num)';
 
-$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+    $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+
+}*/
+
 
 
 include('inc/header.php'); ?>
@@ -109,7 +111,7 @@ if(file_exists($image)) {
     }
 }
 
-echo $paginator;
+/*echo $paginator;*/
     ?>
 
 <div class="clear"></div>

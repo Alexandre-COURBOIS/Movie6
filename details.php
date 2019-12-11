@@ -14,6 +14,18 @@ if (!empty($_GET['slug'])) {
 
     if (!empty($movies)) {
 
+        $userid = $_SESSION['login']['id'];
+        $movieid = $movies['id'];
+
+        $sql = "SELECT * FROM movie_user WHERE user_id = :userid AND movie_id = :movieid";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':userid',$userid,PDO::PARAM_INT);
+        $query->bindValue(':movieid',$movieid,PDO::PARAM_INT);
+        $query->execute();
+        $verifUser = $query->fetch();
+
+        $verifMovie = $verifUser['movie_id'];
+
     } else {
         die('404 Not Found');
     }
@@ -41,9 +53,10 @@ include('inc/header.php');?>
         <p><span>Note : </span><?php echo $movies['rating']?> /100</p>
         <p><span>Popularité : </span><?php echo $movies['popularity']?> </p>
 
-        <?php if(is_logged()) {
-            echo '<a href="ajout_favoris.php?id='.$movies['id'].'">Ajouter à ma liste de favoris</a>';
-
+        <?php if (is_logged()) {
+            if (empty($verifMovie)) {
+                echo '<a href="ajout_favoris.php?id=' . $movies['id'] . '">Ajouter à ma liste de favoris</a>';
+            }
         } ?>
 
 
