@@ -12,11 +12,14 @@ if(!empty($_GET['slug'])) {
     $query->execute();
     $movies = $query->fetch();
 
-    if(!empty($movies)) {
+    if (!empty($movies)) {
 
     } else {
         die('404 Not Found');
     }
+
+} else {
+    die('404 Not Found');
 }
 
 include('inc/header.php');?>

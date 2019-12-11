@@ -21,7 +21,6 @@ if (is_logged()) {
     $query->execute();
     $movies = $query->fetchAll();
 
-
 } else {
     die('403');
 }

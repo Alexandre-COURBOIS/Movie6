@@ -98,7 +98,7 @@ if(file_exists($image)) {
     echo '<ul>';
 
 
-} else {
+} /*else {
 
         echo '<ul class="film">';
 
@@ -106,7 +106,7 @@ if(file_exists($image)) {
 
         echo '<ul>';
 
-    }
+    }*/
 }
 
 echo $paginator;
