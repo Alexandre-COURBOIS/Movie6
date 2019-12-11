@@ -21,7 +21,6 @@ if (is_logged()) {
     $query->execute();
     $movies = $query->fetchAll();
 
-
 } else {
     die('403');
 }
@@ -34,19 +33,14 @@ foreach ($movies as $movie) {
 
     echo '<ul class="film-a-voir">';
 
-    echo '<li><a href="details.php?slug='.$movie['slug'].'"><img src="posters/'.$movie['movieid'].'.jpg" alt=""></a></li>';
+    echo '<li><a href="details.php?slug=' . $movie['slug'] . '"><img src="posters/' . $movie['movieid'] . '.jpg" alt=""></a></li>';
 
     echo '<ul>';
 
-    echo '<div><a href="delate-fav.php?id='.$iduser.'&film='.$movie['movieid'].'">Retirer de mes favoris</a></div>'; ?>
+    echo '<div><a href="delate-fav.php?id=' . $iduser . '&film=' . $movie['movieid'] . '">Retirer de mes favoris</a></div>';
 
+}
 
-<!--    <form action="favoris.php" method="post">
-    un input de type number avec linput submit "nommer" noté  il faut faire un update de la bdd pour lui dire (update de la note)
-    du coup quand le mec appuie sur noté le film est retiré de sa liste a voir,
-    </form>-->
+    echo '<div class="clear"></div>';
 
-
-<?php echo '<div class="clear"></div>';
-
-include('inc/footer.php'); ?>
+include('inc/footer.php');

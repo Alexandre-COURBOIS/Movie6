@@ -54,32 +54,33 @@ include('inc/header.php'); ?>
 
 <form method="post" action="">
 
-    <input type="checkbox" name="genres[]" value="Drama"> Drama<br>
+    <input type="checkbox" name="genres[]" value="Drama"> Drama
 
-    <input type="checkbox" name="genres[]" value="Fantasy"> Fantasy<br>
+    <input type="checkbox" name="genres[]" value="Fantasy"> Fantasy
 
-    <input type="checkbox" name="genres[]" value="Romance"> Romance<br>
+    <input type="checkbox" name="genres[]" value="Romance"> Romance
 
-    <input type="checkbox" name="genres[]"  value="Action"> Action<br>
+    <input type="checkbox" name="genres[]"  value="Action"> Action
 
-    <input type="checkbox" name="genres[]" value="Thriller"> Thriller<br>
+    <input type="checkbox" name="genres[]" value="Thriller"> Thriller
 
-    <input type="checkbox" name="genres[]"  value="Comedy"> Comedy<br>
+    <input type="checkbox" name="genres[]"  value="Comedy"> Comedy
 
-    <input type="checkbox" name="genres[]" value="Adventure"> Adventure<br>
+    <input type="checkbox" name="genres[]" value="Adventure"> Adventure
 
-    <input type="checkbox" name="genres[]" value="Animation"> Animation<br>
+    <input type="checkbox" name="genres[]" value="Animation"> Animation
 
-    <input type="checkbox" name="genres[]" value="Family"> Family<br>
+    <input type="checkbox" name="genres[]" value="Family"> Family
 
-    <input type="checkbox" name="genres[]" value="Sci-Fi"> Sci-Fi<br>
+    <input type="checkbox" name="genres[]" value="Sci-Fi"> Sci-Fi
 
-    <input type="checkbox" name="genres[]" value="Crime"> Crime<br>
+    <input type="checkbox" name="genres[]" value="Crime"> Crime
 
-    <input type="checkbox" name="genres[]" value="Horror"> Horror<br>
+    <input type="checkbox" name="genres[]" value="Horror"> Horror
 
 
     <input type="submit" name="submitted" value="Confirmer">
+
 </form>
 
 <?php
