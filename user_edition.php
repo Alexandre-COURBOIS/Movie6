@@ -44,18 +44,31 @@ if(isset($_POST['submited'])){
   }
 }
 
-include "admin_header.php";
+include "admin_header.php"; ?>
 
-$form->init("", "post", "form-edition-user");
-$form->inputText("nom", "Nom: ", "Entrez un nom.", $user['nom']);
-if(!empty($error['nom'])){$formVerif->printError($error['nom']);};
-$form->inputText("prenom", "Prenom: ", "Entrez un prenom.", $user['prenom']);
-if(!empty($error['prenom'])){$formVerif->printError($error['prenom']);};
-$form->inputText("email", "Email: ", "michel.michel@hotmail.fr", $user['email']);
-if(!empty($error['email'])){$formVerif->printError($error['email']);};
-$form->inputPassword("password", "Mot de passe: ", "");
-if(!empty($error['password'])){$formVerif->printError($error['password']);};
-$form->inputSubmit("submited", "Modifier");
-$form->end();
+<form class="form-wrap" action="inscription.php" method="post">
+<h1>Edition utilisateur</h1>
+<label for="pseudo">Pseudo *</label>
+<input type="text" name="pseudo" id="pseudo" value="<?php if(!empty($_POST['pseudo'])) { echo $_POST['pseudo']; } ?>">
+<p class="error"><?php if(!empty($errors['pseudo'])) { echo $errors['pseudo']; } ?></p>
 
-include "admin_footer.php";
+<label for="email">Email *</label>
+<input type="email" name="email" id="email" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
+<p class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></p>
+
+<label for="email2">Confirmation Email *</label>
+<input type="email" name="email2" id="email2" value="<?php if(!empty($_POST['email2'])) { echo $_POST['email2']; } ?>">
+<p class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></p>
+
+<label for="password1">Mot de passe *</label>
+<input type="password" name="password1" id="password1" value="">
+<p class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; } ?></p>
+
+<label for="password2">Confirmez le mot de passe *</label>
+<input type="password" name="password2" id="password2" value="">
+<p class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; } ?></p>
+
+<input type="submit" name="submitted" value="Modifier utilisateur">
+</form>
+
+<?php include "admin_footer.php"; ?>
