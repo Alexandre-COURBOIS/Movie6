@@ -89,6 +89,6 @@ foreach ($movies as $movie) {
 
 <?php }
 
-    echo '<div class="clear"></div>';
+echo '<div class="clear"></div>';
 
 include('inc/footer.php');
