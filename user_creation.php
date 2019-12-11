@@ -38,7 +38,7 @@ if(isset($_POST['submited'])){
 
 include "admin_header.php"; ?>
 
-<form class="form-wrap" action="inscription.php" method="post">
+<form class="form-wrap" action="user_creation.php" method="post">
 <h1>Création utilisateur</h1>
 <label for="pseudo">Pseudo *</label>
 <input type="text" name="pseudo" id="pseudo" value="<?php if(!empty($_POST['pseudo'])) { echo $_POST['pseudo']; } ?>">
