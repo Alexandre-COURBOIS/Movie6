@@ -42,7 +42,6 @@ include('inc/header.php');?>
         <p><span>Popularité : </span><?php echo $movies['popularity']?> </p>
 
         <?php if(is_logged()) {
-
             echo '<a href="ajout_favoris.php?id='.$movies['id'].'">Ajouter à ma liste de favoris</a>';
 
         } ?>
