@@ -7,24 +7,25 @@ if (!empty($_GET['slug'])) {
 
     $slug = $_GET['slug'];
 
-    $sql = "SELECT * FROM movies_full WHERE slug LIKE '" . $slug . "%'";
+    $sql = "SELECT * FROM movies_full WHERE slug = :slug";
     $query = $pdo->prepare($sql);
+    $query->bindValue(':slug', $slug, PDO::PARAM_STR);
     $query->execute();
     $movies = $query->fetch();
 
-    if (!empty($movies)) {
+    if (!empty($movies) && is_logged()) {
 
         $userid = $_SESSION['login']['id'];
         $movieid = $movies['id'];
 
         $sql = "SELECT * FROM movie_user WHERE user_id = :userid AND movie_id = :movieid";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':userid',$userid,PDO::PARAM_INT);
-        $query->bindValue(':movieid',$movieid,PDO::PARAM_INT);
+        $query->bindValue(':userid', $userid, PDO::PARAM_INT);
+        $query->bindValue(':movieid', $movieid, PDO::PARAM_INT);
         $query->execute();
         $verifUser = $query->fetch();
 
-        $verifMovie = $verifUser['movie_id'];
+        //$verifMovie = $verifUser['movie_id'];
 
     } else {
         die('404 Not Found');
@@ -54,8 +55,10 @@ include('inc/header.php');?>
         <p><span>Popularité : </span><?php echo $movies['popularity']?> </p>
 
         <?php if (is_logged()) {
-            if (empty($verifMovie)) {
+            if (empty($verifUser)) {
                 echo '<a href="ajout_favoris.php?id=' . $movies['id'] . '">Ajouter à ma liste de favoris</a>';
+            } else {
+                echo '<p>Ce film est déjà dans vos films <a href="favoris.php">à voir.</a>';
             }
         } ?>
 
@@ -63,4 +66,4 @@ include('inc/header.php');?>
 
     </div>
 
-<?php include('inc/footer.php'); ?>
+<?php include('inc/footer.php');
